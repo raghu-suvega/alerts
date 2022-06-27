@@ -6,12 +6,12 @@ data:
   DATABASE_PORT: "3306"
   DATABASE_USER: dbadmin
   PROJECT_NAME: ALERT-SERVICE-REDIS
-  REDIS_HOST: 127.0.0.1
+  REDIS_HOST: redis-leader
   REDIS_PORT: "6379"
   TIMEZONE: Asia/Kolkata
 kind: ConfigMap
 metadata:
-  namespace: prod-alert
+  namespace: alerts
   creationTimestamp: null
   labels:
     io.kompose.service: alert-env-redis
