@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: alerts
   annotations:
     kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
     kompose.version: 1.21.0 (992df58d8)
@@ -120,7 +121,7 @@ spec:
             configMapKeyRef:
               key: TIMEZONE
               name: env-alerts
-        image: alert-service:1.0.0
+        image: repo.suvegafleet.com/alert-service:1.0.0
         imagePullPolicy: ""
         name: alert-service
         resources: {}
