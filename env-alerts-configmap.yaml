@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  BCC_EMAILS: alerts@suvegagroup.com
+  DATABASE_HOST: bravana.cpopwcq9mpok.ap-south-1.rds.amazonaws.com
+  DATABASE_NAME: ravana
+  DATABASE_PASSWORD: HNJeu5u9ZIzngoDw9mGS
+  DATABASE_PORT: "3306"
+  DATABASE_USER: dbadmin
+  EMAIL_INPUT_TOPIC: email_service
+  FIREBASE_INPUT_TOPIC: firebase-service
+  KAFKA_BROKERS: b-1.prodcluster.6y99vr.c3.kafka.ap-south-1.amazonaws.com:9092,b-2.prodcluster.6y99vr.c3.kafka.ap-south-1.amazonaws.com:9092
+  LOCATION_URL: http://13.232.102.195/nominatim/reverse
+  LOGGER_LEVEL: Debug
+  MQTT_PORT: "1883"
+  MQTT_TOKEN: faePjK9gDXpiwYiCQRyW20qobWsDpqrsov7x64ExRRFcFOEmt06lOmxO9Pho5yFh
+  MQTT_TOPIC_NEW_MESSAGES: $share/alert_service:1:1/suvega/2180161/new_message
+  MQTT_TOPIC_TELEMETRY: $share/alert_service_telemetry:4:1/flespi/state/gw/devices/2120173/connected/#
+  MQTT_URL: mqtt://mqtt.flespi.io
+  PROJECT_NAME: ALERT-SERVICE
+  REDIS_URL: redis://15.207.100.136:30986
+  TIMEZONE: Asia/Kolkata
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: alert-service-env-alerts
+  name: env-alerts

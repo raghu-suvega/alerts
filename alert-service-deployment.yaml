@@ -1,0 +1,130 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: alert-service
+  name: alert-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: alert-service
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: alert-service
+    spec:
+      containers:
+      - env:
+        - name: BCC_EMAILS
+          valueFrom:
+            configMapKeyRef:
+              key: BCC_EMAILS
+              name: env-alerts
+        - name: DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE_HOST
+              name: env-alerts
+        - name: DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE_NAME
+              name: env-alerts
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE_PASSWORD
+              name: env-alerts
+        - name: DATABASE_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE_PORT
+              name: env-alerts
+        - name: DATABASE_USER
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE_USER
+              name: env-alerts
+        - name: EMAIL_INPUT_TOPIC
+          valueFrom:
+            configMapKeyRef:
+              key: EMAIL_INPUT_TOPIC
+              name: env-alerts
+        - name: FIREBASE_INPUT_TOPIC
+          valueFrom:
+            configMapKeyRef:
+              key: FIREBASE_INPUT_TOPIC
+              name: env-alerts
+        - name: KAFKA_BROKERS
+          valueFrom:
+            configMapKeyRef:
+              key: KAFKA_BROKERS
+              name: env-alerts
+        - name: LOCATION_URL
+          valueFrom:
+            configMapKeyRef:
+              key: LOCATION_URL
+              name: env-alerts
+        - name: LOGGER_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: LOGGER_LEVEL
+              name: env-alerts
+        - name: MQTT_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: MQTT_PORT
+              name: env-alerts
+        - name: MQTT_TOKEN
+          valueFrom:
+            configMapKeyRef:
+              key: MQTT_TOKEN
+              name: env-alerts
+        - name: MQTT_TOPIC_NEW_MESSAGES
+          valueFrom:
+            configMapKeyRef:
+              key: MQTT_TOPIC_NEW_MESSAGES
+              name: env-alerts
+        - name: MQTT_TOPIC_TELEMETRY
+          valueFrom:
+            configMapKeyRef:
+              key: MQTT_TOPIC_TELEMETRY
+              name: env-alerts
+        - name: MQTT_URL
+          valueFrom:
+            configMapKeyRef:
+              key: MQTT_URL
+              name: env-alerts
+        - name: PROJECT_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: PROJECT_NAME
+              name: env-alerts
+        - name: REDIS_URL
+          valueFrom:
+            configMapKeyRef:
+              key: REDIS_URL
+              name: env-alerts
+        - name: TIMEZONE
+          valueFrom:
+            configMapKeyRef:
+              key: TIMEZONE
+              name: env-alerts
+        image: alert-service:1.0.0
+        imagePullPolicy: ""
+        name: alert-service
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
