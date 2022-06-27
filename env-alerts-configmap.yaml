@@ -21,6 +21,7 @@ data:
   TIMEZONE: Asia/Kolkata
 kind: ConfigMap
 metadata:
+  namespace: alerts
   creationTimestamp: null
   labels:
     io.kompose.service: alert-service-env-alerts
