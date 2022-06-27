@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: prod-alert
   annotations:
     kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
     kompose.version: 1.21.0 (992df58d8)
