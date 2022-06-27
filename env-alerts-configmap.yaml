@@ -17,7 +17,7 @@ data:
   MQTT_TOPIC_TELEMETRY: $share/alert_service_telemetry:4:1/flespi/state/gw/devices/2120173/connected/#
   MQTT_URL: mqtt://mqtt.flespi.io
   PROJECT_NAME: ALERT-SERVICE
-  REDIS_URL: redis://15.207.100.136:30986
+  REDIS_URL: redis://redis-leader:6379
   TIMEZONE: Asia/Kolkata
 kind: ConfigMap
 metadata:
