@@ -48,6 +48,7 @@ data:
   twilio_input_topic: twilio-service
 kind: ConfigMap
 metadata:
+  namespace: alerts
   creationTimestamp: null
   labels:
     io.kompose.service: route-deviation-env-route
