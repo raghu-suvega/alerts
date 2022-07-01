@@ -1,0 +1,265 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: route-deviation
+  name: route-deviation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: route-deviation
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: route-deviation
+    spec:
+      containers:
+      - env:
+        - name: bcc_emails
+          valueFrom:
+            configMapKeyRef:
+              key: bcc_emails
+              name: env-route
+        - name: booking_alert_id
+          valueFrom:
+            configMapKeyRef:
+              key: booking_alert_id
+              name: env-route
+        - name: brokers
+          valueFrom:
+            configMapKeyRef:
+              key: brokers
+              name: env-route
+        - name: console_level
+          valueFrom:
+            configMapKeyRef:
+              key: console_level
+              name: env-route
+        - name: consumer_group
+          valueFrom:
+            configMapKeyRef:
+              key: consumer_group
+              name: env-route
+        - name: custom_alert_mobile_numbers
+          valueFrom:
+            configMapKeyRef:
+              key: custom_alert_mobile_numbers
+              name: env-route
+        - name: delay_benchmark
+          valueFrom:
+            configMapKeyRef:
+              key: delay_benchmark
+              name: env-route
+        - name: device_reporting_benchmark_in_seconds
+          valueFrom:
+            configMapKeyRef:
+              key: device_reporting_benchmark_in_seconds
+              name: env-route
+        - name: distance_benchmark
+          valueFrom:
+            configMapKeyRef:
+              key: distance_benchmark
+              name: env-route
+        - name: distance_benchmark_bgr
+          valueFrom:
+            configMapKeyRef:
+              key: distance_benchmark_bgr
+              name: env-route
+        - name: email_service_topic
+          valueFrom:
+            configMapKeyRef:
+              key: email_service_topic
+              name: env-route
+        - name: firebase_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: firebase_input_topic
+              name: env-route
+        - name: flespi_auth_token
+          valueFrom:
+            configMapKeyRef:
+              key: flespi_auth_token
+              name: env-route
+        - name: flespi_retries
+          valueFrom:
+            configMapKeyRef:
+              key: flespi_retries
+              name: env-route
+        - name: flespi_url
+          valueFrom:
+            configMapKeyRef:
+              key: flespi_url
+              name: env-route
+        - name: google_maps_api
+          valueFrom:
+            configMapKeyRef:
+              key: google_maps_api
+              name: env-route
+        - name: google_maps_api_key
+          valueFrom:
+            configMapKeyRef:
+              key: google_maps_api_key
+              name: env-route
+        - name: h3_index_resolution
+          valueFrom:
+            configMapKeyRef:
+              key: h3_index_resolution
+              name: env-route
+        - name: h3_kring_scale
+          valueFrom:
+            configMapKeyRef:
+              key: h3_kring_scale
+              name: env-route
+        - name: india_timezone
+          valueFrom:
+            configMapKeyRef:
+              key: india_timezone
+              name: env-route
+        - name: obdi_datas_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: obdi_datas_table_name
+              name: env-route
+        - name: order_waypoints_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: order_waypoints_table_name
+              name: env-route
+        - name: orders_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: orders_table_name
+              name: env-route
+        - name: redis_host
+          valueFrom:
+            configMapKeyRef:
+              key: redis_host
+              name: env-route
+        - name: redis_port
+          valueFrom:
+            configMapKeyRef:
+              key: redis_port
+              name: env-route
+        - name: route_deviation_alert_id
+          valueFrom:
+            configMapKeyRef:
+              key: route_deviation_alert_id
+              name: env-route
+        - name: route_deviation_telemetry_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: route_deviation_telemetry_input_topic
+              name: env-route
+        - name: sql_connect_timeout
+          valueFrom:
+            configMapKeyRef:
+              key: sql_connect_timeout
+              name: env-route
+        - name: sql_db_name
+          valueFrom:
+            configMapKeyRef:
+              key: sql_db_name
+              name: env-route
+        - name: sql_password
+          valueFrom:
+            configMapKeyRef:
+              key: sql_password
+              name: env-route
+        - name: sql_port
+          valueFrom:
+            configMapKeyRef:
+              key: sql_port
+              name: env-route
+        - name: sql_server_hostname
+          valueFrom:
+            configMapKeyRef:
+              key: sql_server_hostname
+              name: env-route
+        - name: sql_trust_server_certificate
+          valueFrom:
+            configMapKeyRef:
+              key: sql_trust_server_certificate
+              name: env-route
+        - name: sql_username
+          valueFrom:
+            configMapKeyRef:
+              key: sql_username
+              name: env-route
+        - name: start_time
+          valueFrom:
+            configMapKeyRef:
+              key: start_time
+              name: env-route
+        - name: suvega_api_key
+          valueFrom:
+            configMapKeyRef:
+              key: suvega_api_key
+              name: env-route
+        - name: suvega_api_retries
+          valueFrom:
+            configMapKeyRef:
+              key: suvega_api_retries
+              name: env-route
+        - name: suvega_api_url
+          valueFrom:
+            configMapKeyRef:
+              key: suvega_api_url
+              name: env-route
+        - name: telegram_api_token
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_api_token
+              name: env-route
+        - name: telegram_api_url
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_api_url
+              name: env-route
+        - name: telegram_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_input_topic
+              name: env-route
+        - name: telegram_suvega_device_alerts_chat_id
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_suvega_device_alerts_chat_id
+              name: env-route
+        - name: telegram_suvega_platform_alerts_chat_id
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_suvega_platform_alerts_chat_id
+              name: env-route
+        - name: timezone
+          valueFrom:
+            configMapKeyRef:
+              key: timezone
+              name: env-route
+        - name: truck_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: truck_table_name
+              name: env-route
+        - name: twilio_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: twilio_input_topic
+              name: env-route
+        image: nexus.suvegafleet.com/route-deviation
+        imagePullPolicy: ""
+        name: route-deviation
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

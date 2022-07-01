@@ -1,6 +1,7 @@
 version: '3.3'
 services:
-  alert:
+  route-deviation:
     build: .
-    image: alerts-redis
-    env_file: ./.env-redis
+    image: nexus.suvegafleet.com/route-deviation
+    env_file: ./.env-route
+

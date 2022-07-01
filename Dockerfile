@@ -1,9 +1,8 @@
-FROM node:slim
+FROM node:16
 WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
-RUN npm install
+RUN npm install 
 COPY . .
-RUN npm run build
-CMD ["npm","run","start"]
+CMD ["node","index.js"]
 
