@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: nodered
   annotations:
     kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
     kompose.version: 1.21.0 (992df58d8)
@@ -255,7 +256,7 @@ spec:
             configMapKeyRef:
               key: twilio_input_topic
               name: env-route
-        image: nexus.suvegafleet.com/route-deviation
+        image: repo.suvegafleet.com/route-deviation:1.0.0
         imagePullPolicy: ""
         name: route-deviation
         resources: {}
