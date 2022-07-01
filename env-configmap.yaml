@@ -1,0 +1,54 @@
+apiVersion: v1
+data:
+  bcc_emails: alerts@suvegagroup.com
+  booking_alert_id: "2"
+  brokers: b-1.prodcluster.6y99vr.c3.kafka.ap-south-1.amazonaws.com:9092,b-2.prodcluster.6y99vr.c3.kafka.ap-south-1.amazonaws.com:9092
+  console_level: debug
+  consumer_group: route-deviation-telemetry-raw-input
+  custom_alert_mobile_numbers: +919666546644,+918008539994,+919440895146
+  delay_benchmark: "2"
+  device_reporting_benchmark_in_seconds: "300"
+  distance_benchmark: "1"
+  distance_benchmark_bgr: "0.1"
+  email_service_topic: email_service
+  firebase_input_topic: firebase-service
+  flespi_auth_token: qse1jgLjYgLweemhmi3Ko3rBOr4hdFNtYPj5VSeKWN40Rg72pYCBRR3t8Vzcqatc
+  flespi_retries: "2"
+  flespi_url: https://flespi.io/gw/devices
+  google_maps_api: http://13.232.102.195/nominatim/reverse
+  google_maps_api_key: AIzaSyB98LIxlG4-VX7GMVGp5DEZD0ZDIgTN07E
+  h3_index_resolution: "10"
+  h3_kring_scale: "1"
+  india_timezone: Asia/Kolkata
+  obdi_datas_table_name: obdi_datas
+  order_waypoints_table_name: order_waypoints
+  orders_table_name: orders
+  redis_host: 127.0.0.1
+  redis_port: "6397"
+  route_deviation_alert_id: "28"
+  route_deviation_telemetry_input_topic: route-deviation-telemetry-raw-input
+  sql_connect_timeout: "90000"
+  sql_db_name: ravana
+  sql_password: HNJeu5u9ZIzngoDw9mGS
+  sql_port: "3306"
+  sql_server_hostname: bravana.cpopwcq9mpok.ap-south-1.rds.amazonaws.com
+  sql_trust_server_certificate: "true"
+  sql_username: dbadmin
+  start_time: "2021-07-15"
+  suvega_api_key: suvegagroup
+  suvega_api_retries: "2"
+  suvega_api_url: https://app.suvegafleet.com/api
+  telegram_api_token: 875R*^%Fv8FE&^%dvYTDG*^%E674EF^G%&RI
+  telegram_api_url: https://track.suvegafleet.com/sendTelegram
+  telegram_input_topic: telegram-service
+  telegram_suvega_device_alerts_chat_id: "-1001389453757"
+  telegram_suvega_platform_alerts_chat_id: "-1001260064896"
+  timezone: utc
+  truck_table_name: truck
+  twilio_input_topic: twilio-service
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: alert-service-env
+  name: env

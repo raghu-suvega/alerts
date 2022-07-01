@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: alerts
   annotations:
     kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
     kompose.version: 1.21.0 (992df58d8)
@@ -26,102 +25,237 @@ spec:
     spec:
       containers:
       - env:
-        - name: BCC_EMAILS
+        - name: bcc_emails
           valueFrom:
             configMapKeyRef:
-              key: BCC_EMAILS
-              name: env-alerts
-        - name: DATABASE_HOST
+              key: bcc_emails
+              name: env
+        - name: booking_alert_id
           valueFrom:
             configMapKeyRef:
-              key: DATABASE_HOST
-              name: env-alerts
-        - name: DATABASE_NAME
+              key: booking_alert_id
+              name: env
+        - name: brokers
           valueFrom:
             configMapKeyRef:
-              key: DATABASE_NAME
-              name: env-alerts
-        - name: DATABASE_PASSWORD
+              key: brokers
+              name: env
+        - name: console_level
           valueFrom:
             configMapKeyRef:
-              key: DATABASE_PASSWORD
-              name: env-alerts
-        - name: DATABASE_PORT
+              key: console_level
+              name: env
+        - name: consumer_group
           valueFrom:
             configMapKeyRef:
-              key: DATABASE_PORT
-              name: env-alerts
-        - name: DATABASE_USER
+              key: consumer_group
+              name: env
+        - name: custom_alert_mobile_numbers
           valueFrom:
             configMapKeyRef:
-              key: DATABASE_USER
-              name: env-alerts
-        - name: EMAIL_INPUT_TOPIC
+              key: custom_alert_mobile_numbers
+              name: env
+        - name: delay_benchmark
           valueFrom:
             configMapKeyRef:
-              key: EMAIL_INPUT_TOPIC
-              name: env-alerts
-        - name: FIREBASE_INPUT_TOPIC
+              key: delay_benchmark
+              name: env
+        - name: device_reporting_benchmark_in_seconds
           valueFrom:
             configMapKeyRef:
-              key: FIREBASE_INPUT_TOPIC
-              name: env-alerts
-        - name: KAFKA_BROKERS
+              key: device_reporting_benchmark_in_seconds
+              name: env
+        - name: distance_benchmark
           valueFrom:
             configMapKeyRef:
-              key: KAFKA_BROKERS
-              name: env-alerts
-        - name: LOCATION_URL
+              key: distance_benchmark
+              name: env
+        - name: distance_benchmark_bgr
           valueFrom:
             configMapKeyRef:
-              key: LOCATION_URL
-              name: env-alerts
-        - name: LOGGER_LEVEL
+              key: distance_benchmark_bgr
+              name: env
+        - name: email_service_topic
           valueFrom:
             configMapKeyRef:
-              key: LOGGER_LEVEL
-              name: env-alerts
-        - name: MQTT_PORT
+              key: email_service_topic
+              name: env
+        - name: firebase_input_topic
           valueFrom:
             configMapKeyRef:
-              key: MQTT_PORT
-              name: env-alerts
-        - name: MQTT_TOKEN
+              key: firebase_input_topic
+              name: env
+        - name: flespi_auth_token
           valueFrom:
             configMapKeyRef:
-              key: MQTT_TOKEN
-              name: env-alerts
-        - name: MQTT_TOPIC_NEW_MESSAGES
+              key: flespi_auth_token
+              name: env
+        - name: flespi_retries
           valueFrom:
             configMapKeyRef:
-              key: MQTT_TOPIC_NEW_MESSAGES
-              name: env-alerts
-        - name: MQTT_TOPIC_TELEMETRY
+              key: flespi_retries
+              name: env
+        - name: flespi_url
           valueFrom:
             configMapKeyRef:
-              key: MQTT_TOPIC_TELEMETRY
-              name: env-alerts
-        - name: MQTT_URL
+              key: flespi_url
+              name: env
+        - name: google_maps_api
           valueFrom:
             configMapKeyRef:
-              key: MQTT_URL
-              name: env-alerts
-        - name: PROJECT_NAME
+              key: google_maps_api
+              name: env
+        - name: google_maps_api_key
           valueFrom:
             configMapKeyRef:
-              key: PROJECT_NAME
-              name: env-alerts
-        - name: REDIS_URL
+              key: google_maps_api_key
+              name: env
+        - name: h3_index_resolution
           valueFrom:
             configMapKeyRef:
-              key: REDIS_URL
-              name: env-alerts
-        - name: TIMEZONE
+              key: h3_index_resolution
+              name: env
+        - name: h3_kring_scale
           valueFrom:
             configMapKeyRef:
-              key: TIMEZONE
-              name: env-alerts
-        image: repo.suvegafleet.com/alert-service:1.0.0
+              key: h3_kring_scale
+              name: env
+        - name: india_timezone
+          valueFrom:
+            configMapKeyRef:
+              key: india_timezone
+              name: env
+        - name: obdi_datas_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: obdi_datas_table_name
+              name: env
+        - name: order_waypoints_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: order_waypoints_table_name
+              name: env
+        - name: orders_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: orders_table_name
+              name: env
+        - name: redis_host
+          valueFrom:
+            configMapKeyRef:
+              key: redis_host
+              name: env
+        - name: redis_port
+          valueFrom:
+            configMapKeyRef:
+              key: redis_port
+              name: env
+        - name: route_deviation_alert_id
+          valueFrom:
+            configMapKeyRef:
+              key: route_deviation_alert_id
+              name: env
+        - name: route_deviation_telemetry_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: route_deviation_telemetry_input_topic
+              name: env
+        - name: sql_connect_timeout
+          valueFrom:
+            configMapKeyRef:
+              key: sql_connect_timeout
+              name: env
+        - name: sql_db_name
+          valueFrom:
+            configMapKeyRef:
+              key: sql_db_name
+              name: env
+        - name: sql_password
+          valueFrom:
+            configMapKeyRef:
+              key: sql_password
+              name: env
+        - name: sql_port
+          valueFrom:
+            configMapKeyRef:
+              key: sql_port
+              name: env
+        - name: sql_server_hostname
+          valueFrom:
+            configMapKeyRef:
+              key: sql_server_hostname
+              name: env
+        - name: sql_trust_server_certificate
+          valueFrom:
+            configMapKeyRef:
+              key: sql_trust_server_certificate
+              name: env
+        - name: sql_username
+          valueFrom:
+            configMapKeyRef:
+              key: sql_username
+              name: env
+        - name: start_time
+          valueFrom:
+            configMapKeyRef:
+              key: start_time
+              name: env
+        - name: suvega_api_key
+          valueFrom:
+            configMapKeyRef:
+              key: suvega_api_key
+              name: env
+        - name: suvega_api_retries
+          valueFrom:
+            configMapKeyRef:
+              key: suvega_api_retries
+              name: env
+        - name: suvega_api_url
+          valueFrom:
+            configMapKeyRef:
+              key: suvega_api_url
+              name: env
+        - name: telegram_api_token
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_api_token
+              name: env
+        - name: telegram_api_url
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_api_url
+              name: env
+        - name: telegram_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_input_topic
+              name: env
+        - name: telegram_suvega_device_alerts_chat_id
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_suvega_device_alerts_chat_id
+              name: env
+        - name: telegram_suvega_platform_alerts_chat_id
+          valueFrom:
+            configMapKeyRef:
+              key: telegram_suvega_platform_alerts_chat_id
+              name: env
+        - name: timezone
+          valueFrom:
+            configMapKeyRef:
+              key: timezone
+              name: env
+        - name: truck_table_name
+          valueFrom:
+            configMapKeyRef:
+              key: truck_table_name
+              name: env
+        - name: twilio_input_topic
+          valueFrom:
+            configMapKeyRef:
+              key: twilio_input_topic
+              name: env
+        image: nexus.suvegafleet.com/redis-service
         imagePullPolicy: ""
         name: alert-service
         resources: {}
